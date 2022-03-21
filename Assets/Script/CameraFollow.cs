@@ -25,9 +25,8 @@ public class CameraFollow : MonoBehaviour
         Offset.x = 0;
         Offset.y = -3.48f;
         Offset.z = 6.92f;
-        
     }
- 
+
     private void LateUpdate()
     {
         // update position
