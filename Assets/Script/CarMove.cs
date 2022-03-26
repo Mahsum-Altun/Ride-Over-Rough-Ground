@@ -6,7 +6,7 @@ public class CarMove : MonoBehaviour
 {
   private bool moveLeft, moveRight, moveForward, moveBackward;
   //Create the rigidbody and the collider
-  private Rigidbody rb;
+  public Rigidbody rb;
   private Collider col;
   
   //Create a variable you can change in inspector windown for speed
@@ -15,9 +15,20 @@ public class CarMove : MonoBehaviour
 
   [SerializeField]
   private float smoothRotation;
+  
 
+  void OnCollisionStay (Collision other)
+  {
+      if(other.gameObject.tag != "ground")
+      {
+         speed = 0f;
+      }
+      else
+      {
+          speed = 150f;
+      }
 
-
+  }
   void Start ()
   {
       //Get the rigidbody and collider
@@ -28,7 +39,13 @@ public class CarMove : MonoBehaviour
 
 
   void Update ()
-  {
+  {  
+     float dot = Vector3.Dot(transform.up,Vector3.up);
+     if (dot <= -0.5f)
+     {
+         speed = 0;
+     }
+  
      //Get the vehicle's speed
      var velocity = rb.velocity;
      var localVel = transform.InverseTransformDirection(velocity);
@@ -85,6 +102,7 @@ public class CarMove : MonoBehaviour
   
   
   }
+  
 
 
   public void MoveLeft ()
@@ -126,5 +144,5 @@ public class CarMove : MonoBehaviour
   {
       moveBackward = false;
   }
-
+  
 }
