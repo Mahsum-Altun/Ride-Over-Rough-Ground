@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // camera will follow this object
-    public Transform Target;
-    //camera transform
-    public Transform camTransform;
-    // offset between camera and target
-    public Vector3 Offset;
+  public GameObject target;
+  public float speed = 5;
+  public Vector3 offset;
+  //Add kinematic Rigidbody for camera shake
+  public Rigidbody rb;
     
-    
-     
-    
-    // change this value to get desired smoothness
-    public float SmoothTime = 0.3f;
- 
-    // This value will change at the runtime depending on target movement. Initialize with zero vector.
-    private Vector3 velocity = Vector3.zero;
  
     private void Start()
     {
-        Offset.x = 0;
-        Offset.y = -3.48f;
-        Offset.z = 6.92f;
+        //Get the Rigidbody
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        // update position
-        Vector3 targetPosition = Target.transform.position + -1 * Offset;
-        camTransform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, SmoothTime);
-        
- 
-        // update rotation
-        transform.LookAt(Target);
+        var newRotation = Quaternion.LookRotation(target.transform.position - rb.position + Vector3.zero);
+        rb.rotation = Quaternion.Slerp(rb.rotation, newRotation, speed * Time.deltaTime);
+        Vector3 newPosition = target.transform.position - target.transform.forward * offset.z - target.transform.up * offset.y;
+        rb.position = Vector3.Slerp(rb.position, newPosition, Time.deltaTime * speed);
+    }
+    
+    //forward UI button
+    public void Forward()
+    {
+        //Adjust camera speed if button is pressed
+        speed = 10;
+    }
+    //Backward UI button
+    public void Backward()
+    {
+        //Adjust camera speed if button is pressed
+        speed = 5;
     }
 }
