@@ -10,7 +10,6 @@ public class CameraFollow : MonoBehaviour
   //Add kinematic Rigidbody for camera shake
   public Rigidbody rb;
     
- 
     private void Start()
     {
         //Get the Rigidbody

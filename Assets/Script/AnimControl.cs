@@ -1,23 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class AnimControl : CarMove
+public class AnimControl : MonoBehaviour
 {
   Animator animator;
-  private bool animPlay, animStop;
+  //Get Rigidbody from CarMove class to use Rigidbody
+  public CarMove rigid;
     
   void Start()
   {
     //Get the Animator
     animator = GetComponent<Animator>();
   }
-   void Update()
+  void Update()
   {
-      //Adjust animation based on rigidbody speed
-      float move = rb.velocity.magnitude;
-      animator.SetFloat("Velocity", move);
+    //Adjust animation based on rigidbody speed
+    float move = rigid.rb.velocity.magnitude;
+    animator.SetFloat("Velocity", move);
   }
-
-
 
 }
