@@ -81,7 +81,7 @@ public class CarMove : MonoBehaviour
      if (moveRight)
      {
         // Turn the vehicle direction to the right
-        transform.Rotate(Vector3.up, 90 * smoothRotation * Time.deltaTime);
+       transform.Rotate(Vector3.up, 90 * smoothRotation * Time.deltaTime);
         // Go in the direction the vehicle is facing
         if (localVel.z > 0)
         {
@@ -94,7 +94,7 @@ public class CarMove : MonoBehaviour
      }
     }
   
-  public void MoveLeft ()
+ public void MoveLeft ()
   {
     moveLeft = true;
   }
