@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarMove : MonoBehaviour
 {
@@ -18,7 +17,10 @@ public class CarMove : MonoBehaviour
   PlayerCollider m_playerCollider;
   //Created to tune the sound of an object in the air and on the ground
   public AudioSource audioSource1, audioSource2, audioSource3;
-  
+  public Button leftButton;
+  public Button rightButton;
+  public bool blocksRaycasts;
+  public CanvasGroup canvasGroup;  
   void Start ()
   {
     //Get the PlayerCollider class
@@ -53,6 +55,7 @@ public class CarMove : MonoBehaviour
         audioSource2.volume = 0.11f;
         audioSource3.volume = 0.11f;
      }
+
      else
     {
         //OnCollisionStay mutes sound if in mid-air
@@ -92,6 +95,26 @@ public class CarMove : MonoBehaviour
             rb.velocity = -transform.forward * rb.velocity.magnitude;
         }
      }
+    }
+    //Is the vehicle on the ground?
+    private void OnCollisionEnter(Collision other) 
+    {
+        //Gravity if the vehicle is on the ground
+        Physics.gravity = new Vector3(0, -15f, 0);
+        rightButton.interactable = true;
+        leftButton.interactable = true;
+        //Right and left UI buttons can be used if the vehicle is on the ground
+        canvasGroup.blocksRaycasts = true;
+    }
+    //Is the vehicle in the air?
+    private void OnCollisionExit(Collision other) 
+    {
+        //Gravity if the vehicle is in the air
+        Physics.gravity = new Vector3(0, -40f, 0);
+        rightButton.interactable = false;
+        leftButton.interactable = false;
+        //Right and left UI buttons are not available if the vehicle is in the air
+        canvasGroup.blocksRaycasts = false;
     }
   
  public void MoveLeft ()
