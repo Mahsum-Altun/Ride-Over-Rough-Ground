@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarImpact : MonoBehaviour
@@ -20,6 +18,7 @@ public class CarImpact : MonoBehaviour
         //Play impact sound
        carSound.PlayOneShot(impact);
     }  
+
   }
 
 }
