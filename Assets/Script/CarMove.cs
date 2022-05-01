@@ -21,6 +21,11 @@ public class CarMove : MonoBehaviour
   public Button rightButton;
   public bool blocksRaycasts;
   public CanvasGroup canvasGroup;  
+  //Add effect
+  [SerializeField] ParticleSystem collectParticle;
+  //Add effect
+  [SerializeField] ParticleSystem collectParticle2;
+
   void Start ()
   {
     //Get the PlayerCollider class
@@ -43,12 +48,12 @@ public class CarMove : MonoBehaviour
          //Moves the object forward
         if (moveForward)
         {
-          rb.AddRelativeForce(Vector3.forward * speed); 
+          rb.AddRelativeForce(Vector3.forward * speed * Time.deltaTime); 
         } 
         //Moves the object backwards
         if (moveBackward)
         {
-          rb.AddRelativeForce(Vector3.back * speed);
+          rb.AddRelativeForce(Vector3.back * speed * Time.deltaTime);
         }
         //Turns up sound if OnCollisionStay is on the ground
         audioSource1.volume = 0.11f;
@@ -97,9 +102,9 @@ public class CarMove : MonoBehaviour
      }
     }
     //Is the vehicle on the ground?
-    private void OnCollisionEnter(Collision other) 
+    private void OnCollisionStay(Collision other) 
     {
-        //Gravity if the vehicle is on the ground
+         //Gravity if the vehicle is on the ground
         Physics.gravity = new Vector3(0, -15f, 0);
         rightButton.interactable = true;
         leftButton.interactable = true;
@@ -138,20 +143,36 @@ public class CarMove : MonoBehaviour
     moveForward = true;
     //OnCollisionStay stops when a rigidbody sleeps Wake rigidbody when asks OnCollisionStay to run
     rbGo.WakeUp();
+    //Play effect
+    collectParticle.Play();
+    //Play effect
+    collectParticle2.Play();
   }
   public void StopMovingForward ()
   {
     moveForward = false;
+    //Stop effect
+    collectParticle.Stop();
+    //Stop effect
+    collectParticle2.Stop();
   }
   public void MoveBackward ()
   {
     moveBackward = true;
     //OnCollisionStay stops when a rigidbody sleeps Wake rigidbody when asks OnCollisionStay to run
     rbGo.WakeUp();
+    //Play effect
+    collectParticle.Play();
+    //Play effect
+    collectParticle2.Play();
   }
   public void StopMovingBackward ()
   {
     moveBackward = false;
+    //Stop effect
+    collectParticle.Stop();
+    //Stop effect
+    collectParticle2.Stop();
   }
   
 
