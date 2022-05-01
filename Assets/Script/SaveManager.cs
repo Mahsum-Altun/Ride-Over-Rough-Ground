@@ -12,6 +12,8 @@ public class SaveManager : MonoBehaviour
   
   //selected car
   public int currentCar;
+  public int money;
+  public bool [] carsUnlocked = new bool [2] {true, false};
 
   private void Awake()
   {
@@ -33,6 +35,13 @@ public class SaveManager : MonoBehaviour
           PlayerData_Storage data = (PlayerData_Storage)bf.Deserialize(file);
 
           currentCar = data.currentCar;
+          money = data.money;
+          carsUnlocked = data.carsUnlocked;
+
+          if (data.carsUnlocked == null)
+          {
+              carsUnlocked = new bool [2] {true, false};
+          }
 
           file.Close();
       }
@@ -45,6 +54,8 @@ public class SaveManager : MonoBehaviour
       PlayerData_Storage data = new PlayerData_Storage();
 
       data.currentCar = currentCar;
+      data.money = money;
+      data.carsUnlocked = carsUnlocked;
 
       bf.Serialize(file, data);
       file.Close();
@@ -55,4 +66,6 @@ public class SaveManager : MonoBehaviour
 class PlayerData_Storage
 {
     public int currentCar;
+    public int money;
+    public bool [] carsUnlocked;
 }
