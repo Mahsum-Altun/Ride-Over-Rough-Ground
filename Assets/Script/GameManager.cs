@@ -3,17 +3,26 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //is the game over
     bool gameHasEnded = false;
+    //Scene load delay
     public float restartDelay = 1f;
-    //A UI panel that appears when you finish Level
-    public GameObject complateLevelUI;
-    //Button prefab inside the car
-    public GameObject buttonUI;
+    //Select the scene to load when it comes to an end
+    public int nextSceneLoad;
 
+
+   //win the level
    public void CompleteLevel()
    {
-       complateLevelUI.SetActive(true);
-       buttonUI.SetActive(false);
+       //Upload next scene
+         nextSceneLoad = SceneManager.GetActiveScene().buildIndex +1;
+         SceneManager.LoadScene(nextSceneLoad);
+         
+         //Unlock the next scene
+          if(nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+         {
+            PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+         }
    }
 
    public void EndGame()
@@ -33,13 +42,6 @@ public class GameManager : MonoBehaviour
    public void Quit()
    {
        Application.Quit();
-       Debug.Log("Quit");
-   }
-
-   //Loads the next level after the panel that appears when the level is completed
-   public void LoadNextLevel()
-   {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);       
    }
 
    //Load selected level
@@ -47,4 +49,5 @@ public class GameManager : MonoBehaviour
   {
       SceneManager.LoadScene(_index);
   }
+
 }
