@@ -25,7 +25,7 @@ Material:
     - _SkyGradientExponent: 2.5
     - _SunDiscContribution: 1
     - _SunDiscExponent: 125000
-    - _SunDiscMultiplier: 0
+    - _SunDiscMultiplier: 12.53
     - _SunHaloContribution: 0
     - _SunHaloExponent: 125
     - _Title: 0

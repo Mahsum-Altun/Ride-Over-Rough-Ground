@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1157296147295673441}
   m_Layer: 0
   m_Name: Next Level
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0364cd54e09508b41ab1786a253af59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  nextSceneLoad: 0
 --- !u!33 &1157296147295673441
 MeshFilter:
   m_ObjectHideFlags: 0
