@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CarImpact : MonoBehaviour
 {
+    //Add effect
+    [SerializeField] ParticleSystem collectParticle;
     //Create impact clip
     public AudioClip impact;
     public AudioSource carSound;
@@ -17,6 +19,9 @@ public class CarImpact : MonoBehaviour
     {
         //Play impact sound
        carSound.PlayOneShot(impact);
+       //Plays the effect when the car hits the ground
+       collectParticle.Play();
+
     }  
 
   }
