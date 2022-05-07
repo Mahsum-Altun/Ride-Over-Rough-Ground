@@ -13,7 +13,7 @@ public class SaveManager : MonoBehaviour
   //selected car
   public int currentCar;
   public int money;
-  public bool [] carsUnlocked = new bool [2] {true, false};
+  public bool [] carsUnlocked = new bool [6] {true, false, false, false, false, false};
 
   private void Awake()
   {
@@ -40,7 +40,7 @@ public class SaveManager : MonoBehaviour
 
           if (data.carsUnlocked == null)
           {
-              carsUnlocked = new bool [2] {true, false};
+              carsUnlocked = new bool [6] {true, false, false, false, false, false};
           }
 
           file.Close();
