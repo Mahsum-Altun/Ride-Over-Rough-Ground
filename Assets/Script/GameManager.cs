@@ -14,9 +14,17 @@ public class GameManager : MonoBehaviour
    //win the level
    public void CompleteLevel()
    {
-       //Upload next scene
-         nextSceneLoad = SceneManager.GetActiveScene().buildIndex +1;
-         SceneManager.LoadScene(nextSceneLoad);
+      
+         if (SceneManager.GetActiveScene().buildIndex == 5)
+         {
+             SceneManager.LoadScene(0);
+         }
+         else
+         {
+              //Upload next scene
+             nextSceneLoad = SceneManager.GetActiveScene().buildIndex +1;
+             SceneManager.LoadScene(nextSceneLoad);
+         }
          
          //Unlock the next scene
           if(nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
