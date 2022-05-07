@@ -45,5 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carModels:
   - {fileID: 8318780203843840517, guid: f316c4e5397a4454f8e73ea0067f329d, type: 3}
-  - {fileID: 5133682660522159118, guid: 2ce4415f4d83ead44bb23a711dc79fd4, type: 3}
   - {fileID: 3435221973852004640, guid: 71ca1cba9704dcb419be249d11233e1e, type: 3}
+  - {fileID: 3435221973852004640, guid: 79ad9dbeddd500740bb19563fe11b6b2, type: 3}
+  - {fileID: 5133682660522159118, guid: 2ce4415f4d83ead44bb23a711dc79fd4, type: 3}
+  - {fileID: 5133682660522159118, guid: 7e17b73a9c2eceb44b6c621a81b90c63, type: 3}
+  - {fileID: 5133682660522159118, guid: 80228805a0e38b3479e83b0ac112edfb, type: 3}

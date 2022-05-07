@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8318780202807557564
 Transform:
   m_ObjectHideFlags: 0
@@ -1443,13 +1443,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8318780202842882403}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.027049819, y: 0.6985506, z: 0.025265401, w: 0.7146027}
   m_LocalPosition: {x: 0.03, y: 0.466, z: 4.87}
   m_LocalScale: {x: 0.2867435, y: 11.015239, z: 0.008732911}
   m_Children: []
   m_Father: {fileID: 8318780203843840516}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.193, y: 88.706, z: 4.238}
 --- !u!33 &8318780202842882409
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca5f9003d85586d4d96ea25bf9f6bb44, type: 2}
+  - {fileID: 2100000, guid: 4384ed150196f104aa661a51a99ae8c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4502,7 +4502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8318780203334129642
 Transform:
   m_ObjectHideFlags: 0
@@ -6823,7 +6823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8318780203824042172
 Transform:
   m_ObjectHideFlags: 0
@@ -7107,9 +7107,9 @@ GameObject:
   - component: {fileID: 8318780203843840518}
   - component: {fileID: 8318780203843840523}
   - component: {fileID: 8318780203843840520}
-  - component: {fileID: 1573891936206586002}
+  - component: {fileID: 129957113979385520}
   m_Layer: 0
-  m_Name: Player Spider
+  m_Name: Player Spider 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7150,7 +7150,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8318780203843840517}
   serializedVersion: 2
-  m_Mass: 1.2
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -7171,7 +7171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8318780203843840519}
-  speed: 100
+  speed: 110
   smoothRotation: 0.3
   rbGo: {fileID: 8318780203843840519}
   audioSource1: {fileID: 8318780204448803979}
@@ -7183,7 +7183,6 @@ MonoBehaviour:
   canvasGroup: {fileID: 8604844815016431551}
   collectParticle: {fileID: 2367714323847218878}
   collectParticle2: {fileID: 6818206518004988080}
-  Player: {fileID: 8318780203843840517}
 --- !u!114 &8318780203843840518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7307,7 +7306,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1573891936206586002
+--- !u!114 &129957113979385520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7320,6 +7319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  CoinSource: {fileID: 8318780203843840520}
+  CoinClip: {fileID: 8300000, guid: 217e1b96c0af36a4e82ca1ce9e80ac32, type: 3}
 --- !u!1 &8318780203846748307
 GameObject:
   m_ObjectHideFlags: 0
@@ -10176,7 +10177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8318780204448803975
 Transform:
   m_ObjectHideFlags: 0
@@ -11062,7 +11063,7 @@ Transform:
   m_GameObject: {fileID: 8318780204563066996}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.022338867, y: 0, z: 6.82}
-  m_LocalScale: {x: 0.13556859, y: 0.13556859, z: 0.13556859}
+  m_LocalScale: {x: 0.14737408, y: 0.14737408, z: 0.14737408}
   m_Children:
   - {fileID: 8318780203859498836}
   - {fileID: 8318780203426999753}
