@@ -10,7 +10,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
      private string Rewarded = "Rewarded_Android";
      private string Interstitial = "Interstitial_Android";
      private string Banner = "Banner_Android";
-     public bool testMode = true;
+     public bool testMode = false;
      public Button rewardedButton;
 
 
@@ -18,7 +18,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
      {
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameID, testMode);
-        rewardedButton.interactable = Advertisement.IsReady (gameID); 
+        rewardedButton.interactable = Advertisement.IsReady (gameID);
         StartCoroutine (ShowBannerWhenReady ());
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
      }  
